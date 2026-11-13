@@ -71,6 +71,7 @@ public class TarefasController {
     @ApiResponse(responseCode = "200", description = "Status atualizado(s).")
     @ApiResponse(responseCode = "404", description = "Tarefa(s) não encontrada(s).")
     @ApiResponse(responseCode = "500", description = "Erro interno no servidor.")
+    @ApiResponse(responseCode = "403", description = "Id de tarefa não encontrado")
     public ResponseEntity<TarefasDTOResponse> alteraStatusDeNotificacao(@RequestParam("status")
                                                                 StatusNotificacaoEnum status,
                                                                         @RequestParam("id") String id,
