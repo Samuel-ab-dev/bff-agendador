@@ -8,6 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TelefoneDTOResponse {
+    private String id;
     private String numero;
     private String ddd;
 }

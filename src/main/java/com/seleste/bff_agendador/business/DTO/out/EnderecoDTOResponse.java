@@ -8,6 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class EnderecoDTOResponse {
+    private String id;
     private String rua;
     private String numero;
     private String complemento;
