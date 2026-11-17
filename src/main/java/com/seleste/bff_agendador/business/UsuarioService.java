@@ -4,6 +4,7 @@ import com.seleste.bff_agendador.business.DTO.in.EnderecoDTORequest;
 import com.seleste.bff_agendador.business.DTO.in.LoginDTORequest;
 import com.seleste.bff_agendador.business.DTO.in.TelefoneDTORequest;
 import com.seleste.bff_agendador.business.DTO.in.UsuarioDTORequest;
+import com.seleste.bff_agendador.business.DTO.out.CepDTOResponse;
 import com.seleste.bff_agendador.business.DTO.out.EnderecoDTOResponse;
 import com.seleste.bff_agendador.business.DTO.out.TelefoneDTOResponse;
 import com.seleste.bff_agendador.business.DTO.out.UsuarioDTOResponse;
@@ -52,5 +53,9 @@ public class UsuarioService {
 
     public TelefoneDTOResponse cadastraTelefone(String token, TelefoneDTORequest telefoneDTO) {
         return client.cadastraTelefone(telefoneDTO, token);
+    }
+
+    public CepDTOResponse buscarDadosCep(String cep) {
+        return client.buscarDadosCep(cep);
     }
 }
