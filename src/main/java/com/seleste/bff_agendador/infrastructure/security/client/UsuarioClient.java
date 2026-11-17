@@ -4,10 +4,12 @@ import com.seleste.bff_agendador.business.DTO.in.EnderecoDTORequest;
 import com.seleste.bff_agendador.business.DTO.in.LoginDTORequest;
 import com.seleste.bff_agendador.business.DTO.in.TelefoneDTORequest;
 import com.seleste.bff_agendador.business.DTO.in.UsuarioDTORequest;
+import com.seleste.bff_agendador.business.DTO.out.CepDTOResponse;
 import com.seleste.bff_agendador.business.DTO.out.EnderecoDTOResponse;
 import com.seleste.bff_agendador.business.DTO.out.TelefoneDTOResponse;
 import com.seleste.bff_agendador.business.DTO.out.UsuarioDTOResponse;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @FeignClient(name = "usuario", url = "${usuario.url}")
@@ -49,4 +51,8 @@ public interface UsuarioClient {
     @PostMapping("/telefone")
     TelefoneDTOResponse cadastraTelefone(@RequestBody TelefoneDTORequest telefoneDTO,
                                         @RequestHeader("Authorization") String token);
+
+    @GetMapping("/endereco/{cep}")
+    CepDTOResponse buscarDadosCep(@PathVariable("cep") String cep);
+
 }
