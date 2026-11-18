@@ -9,19 +9,18 @@ import com.seleste.bff_agendador.business.DTO.out.EnderecoDTOResponse;
 import com.seleste.bff_agendador.business.DTO.out.TelefoneDTOResponse;
 import com.seleste.bff_agendador.business.DTO.out.UsuarioDTOResponse;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient(name = "usuario", url = "${usuario.url}")
+@FeignClient(name = "usuario", url = "${usuario.url}", path = "/usuario")
 public interface UsuarioClient {
 
     @PostMapping
-    UsuarioDTOResponse UsuarioDTOsalvaUsuario(@RequestBody UsuarioDTORequest usuarioDTO);
+    UsuarioDTOResponse salvaUsuario(@RequestBody UsuarioDTORequest usuarioDTO);
 
     @PostMapping("/login")
     String login(@RequestBody LoginDTORequest loginDTO);
 
-    @GetMapping("/usuario")
+    @GetMapping
     UsuarioDTOResponse buscaUsuarioPorEmail(@RequestParam("email") String email,
                                            @RequestHeader("Authorization") String token);
     @DeleteMapping("/{email}")
@@ -45,8 +44,8 @@ public interface UsuarioClient {
                                  String token);
 
     @PostMapping("/endereco")
-    EnderecoDTOResponse EnderecoDTOcadastraEndereco(@RequestBody EnderecoDTORequest enderecoDTO,
-                                                   @RequestHeader("Authorization") String token);
+    EnderecoDTOResponse cadastraEndereco(@RequestBody EnderecoDTORequest enderecoDTO,
+                                         @RequestHeader("Authorization") String token);
 
     @PostMapping("/telefone")
     TelefoneDTOResponse cadastraTelefone(@RequestBody TelefoneDTORequest telefoneDTO,
