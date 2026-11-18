@@ -19,7 +19,7 @@ public class UsuarioService {
     private final UsuarioClient client;
 
     public UsuarioDTOResponse salvaUsuario(UsuarioDTORequest usuarioDTO) {
-        return client.UsuarioDTOsalvaUsuario(usuarioDTO);
+        return client.salvaUsuario(usuarioDTO);
     }
 
     public String loginUsuario(LoginDTORequest loginDTO) {
@@ -48,7 +48,7 @@ public class UsuarioService {
     }
 
     public EnderecoDTOResponse cadastraEndereco(String token, EnderecoDTORequest enderecoDTO) {
-        return client.EnderecoDTOcadastraEndereco(enderecoDTO, token);
+        return client.cadastraEndereco(enderecoDTO, token);
     }
 
     public TelefoneDTOResponse cadastraTelefone(String token, TelefoneDTORequest telefoneDTO) {
